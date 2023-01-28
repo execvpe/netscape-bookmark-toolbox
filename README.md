@@ -1,6 +1,6 @@
 # Netscape Bookmark (File) Toolbox
 
-A collection of python scripts for parsing and converting netscape bookmark files.
+A collection of python scripts for parsing and converting Netscape bookmark files.
 
 ## Dependencies
 
@@ -8,7 +8,7 @@ All scripts should run using the default Python 3 libraries,
 except `extract_urls.py` which requires the HTML parser
 [Beautiful Soup](https://en.wikipedia.org/wiki/Beautiful_Soup_(HTML_parser)).
 
-If you are using Arch Linux, you can install the dependency using:  
+If you are using Arch Linux, you can install the dependency using:
 `pacman -S python-beautifulsoup4`
 
 There should be a simillar way of installing the library if you are using another distribution.
@@ -35,9 +35,9 @@ the first file, but not in the second.
 
 ### extract_urls.py
 
-`extract_urls.py <netscape bookmark file>`
+`extract_urls.py <Netscape bookmark file>`
 
-Extracts all URLs from a netscape bookmark file and print them on the
+Extracts all URLs from a Netscape bookmark file and print them on the
 standard output (stdout).
 
 ### filter_200.py
@@ -45,7 +45,7 @@ standard output (stdout).
 `filter_200.py <raw file>`
 
 Prints every URL which is reachable (server responded `200 OK`)
-on the standard output.  
+on the standard output.
 If the request fails because of various reasons, the URL will be printed on the
 standard error output stream (stderr) paired with the corresponding error code
 in front of it. Discard any errors by appending `2> /dev/null`.
@@ -61,7 +61,7 @@ before printing them on the standard output.
 
 `to_netscape_basic.py <raw file>`
 
-This script converts a raw file (URL on every line) back to the netscape bookmark format.  
+This script converts a raw file (URL on every line) back to the Netscape bookmark format.
 Because the bookmark title have been discarded, the URL is used for this field.
 Timestamps and other metadata is discarded.
 
@@ -71,7 +71,7 @@ Timestamps and other metadata is discarded.
 
 `to_netscape_today.py <raw file>`
 
-This script converts a raw file (URL on every line) back to the netscape bookmark format.  
+This script converts a raw file (URL on every line) back to the Netscape bookmark format.
 Because the timestamps (creation, modification) as well as the bookmark title have been discarded,
 the current time repectively the URL is used for these fields.
 
@@ -81,7 +81,7 @@ the current time repectively the URL is used for these fields.
 
 `to_netscape_full.py <raw file> <netscape bookmark file> [netscape bookmark file]...`
 
-This script converts a raw file (URL on every line) back to the netscape bookmark format.  
+This script converts a raw file (URL on every line) back to the netscape bookmark format.
 The netscape bookmark files are being crawled for metadata in the order given by the
 command line arguments. The first match is used. If no match is found, timestamps are ignored
 and the title will be the URL.
