@@ -74,5 +74,7 @@ Print all the URLs in the bookmark file to the standard output which are still r
 and remove duplicates among them. Discard all errors.
 
 ```
-$ ./extract_href.py bookmarks.html | ./rm_dups_and_sort.py /dev/stdin | ./filter_200.py /dev/stdin 2> /dev/null
+$ ./extract_href.py bookmarks.html > bookmarks.raw
+$ ./rm_dups_and_sort.py bookmarks.raw > unique.raw
+$ ./filter_200.py unique.raw > /reachable.raw 2> /dev/null
 ```
