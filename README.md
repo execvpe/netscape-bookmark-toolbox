@@ -5,7 +5,7 @@ A collection of python scripts for parsing and converting Netscape bookmark file
 ## Dependencies
 
 All scripts should run using the default Python 3 libraries,
-except `extract_urls.py` which requires the HTML parser
+except `extract_urls.py` and `to_netscape_full.py` which require the HTML parser
 [Beautiful Soup](https://en.wikipedia.org/wiki/Beautiful_Soup_(HTML_parser)).
 
 If you are using Arch Linux, you can install the dependency using:
