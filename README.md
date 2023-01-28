@@ -5,7 +5,7 @@ A collection of python scripts for parsing and converting netscape bookmark file
 ## Dependencies
 
 All scripts should run using the default Python 3 libraries,
-except `extract_href.py` which requires the HTML parser
+except `extract_urls.py` which requires the HTML parser
 [Beautiful Soup](https://en.wikipedia.org/wiki/Beautiful_Soup_(HTML_parser)).
 
 If you are using Arch Linux, you can install the dependency using:  
@@ -33,9 +33,9 @@ https://github.com
 Compares files line-by-line and outputs lines which are present in
 the first file, but not in the second.
 
-### extract_href.py
+### extract_urls.py
 
-`extract_href.py <netscape bookmark file>`
+`extract_urls.py <netscape bookmark file>`
 
 Extracts all URLs from a netscape bookmark file and prints them on the
 standard output (stdout).
@@ -74,7 +74,7 @@ Print all the URLs in the bookmark file to the standard output which are still r
 and remove duplicates among them. Discard all errors.
 
 ```
-$ ./extract_href.py bookmarks.html > bookmarks.raw
+$ ./extract_urls.py bookmarks.html > bookmarks.raw
 $ ./rm_dups_and_sort.py bookmarks.raw > unique.raw
 $ ./filter_200.py unique.raw > /reachable.raw 2> /dev/null
 ```

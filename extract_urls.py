@@ -9,8 +9,8 @@ def main(argc: int, argv: list[str]) -> None:
 
     with open(argv[1]) as f:
         soup = BeautifulSoup(f, features="html.parser")
-        for e in soup.findAll("a"):
-            print(e["href"])
+    for e in soup.findAll("a", href=True):
+        print(e["href"])
 
 if __name__ == "__main__":
     main(len(argv), argv)
