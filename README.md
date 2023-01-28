@@ -37,7 +37,7 @@ the first file, but not in the second.
 
 `extract_urls.py <netscape bookmark file>`
 
-Extracts all URLs from a netscape bookmark file and prints them on the
+Extracts all URLs from a netscape bookmark file and print them on the
 standard output (stdout).
 
 ### filter_200.py
