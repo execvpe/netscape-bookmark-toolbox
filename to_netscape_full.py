@@ -3,6 +3,8 @@
 from bs4 import BeautifulSoup
 from sys import argv
 
+soups = []
+
 def netscape_begin() -> None:
     print(
 """
@@ -34,12 +36,10 @@ def netscape_add(url: str, creation: int, modification: int, title: str) -> None
 def netscape_end() -> None:
     print("</DL>")
 
-def find_metadata(url: str, filepaths: list[str]) -> tuple[int, int, str]:
-    # Very inefficient, but it works...
-    for p in filepaths:
-        with open(p) as f:
-            soup = BeautifulSoup(f, features="html.parser")
-        for e in soup.findAll("a", href=True):
+def find_metadata(url: str) -> tuple[int, int, str]:
+    global soups
+    for s in soups:
+        for e in s.findAll("a", href=True):
             if e["href"] != url:
                 continue
 
@@ -67,10 +67,15 @@ def main(argc: int, argv: list[str]) -> None:
 
     netscape_begin()
 
+    global soups
+    for p in argv[2:]:
+        with open(p) as f:
+            soups.append(BeautifulSoup(f, features="html.parser"))
+
     with open(argv[1]) as f:
         for url in f.readlines():
             url = url.strip()
-            creation, modification, title = find_metadata(url, argv[2:])
+            creation, modification, title = find_metadata(url)
 
             netscape_add(url, creation, modification, title)
 
