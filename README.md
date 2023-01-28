@@ -57,6 +57,17 @@ in front of it. Discard any errors by appending `2> /dev/null`.
 As the name suggests, this script removes duplicate URLs and sorts everything
 before printing them on the standard output.
 
+### to_netscape.py
+
+`to_netscape.py <raw file>`
+
+This script converts a raw file (URL on every line) back to the netscape bookmark format.
+Because the timestamps (creation, modification) as well as the bookmark title have been discarded,
+the current time repectively the URL is used for these fields.
+
+*If you are unsatisfied with this behavior, patch the scripts yourself or wait a little,
+because I am actively working on an improvent on this situation.*
+
 ## Example (combined)
 
 Print all the URLs in the bookmark file to the standard output which are still reachable
