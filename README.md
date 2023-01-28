@@ -88,11 +88,14 @@ and the title will be the URL.
 
 ## Example (combined)
 
-Print all the URLs in the bookmark file to the standard output which are still reachable
-and remove duplicates among them. Discard all errors.
+- Extract all the URLs in the bookmark file `bookmarks.html`
+- Delete duplicates and sort the URLs.
+- Check which of them are still reachable. Discard all errors.
+- Export the URLs back to the Netscape bookmark format including metadata such as timestamps and title.
 
 ```
 $ ./extract_urls.py bookmarks.html > bookmarks.raw
 $ ./rm_dups_and_sort.py bookmarks.raw > unique.raw
-$ ./filter_200.py unique.raw > /reachable.raw 2> /dev/null
+$ ./filter_200.py unique.raw > reachable.raw 2> /dev/null
+$ ./to_netscape_full.py reachable.raw bookmarks.html > export.html
 ```
