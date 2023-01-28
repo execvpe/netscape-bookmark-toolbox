@@ -63,7 +63,7 @@ before printing them on the standard output.
 
 This script converts a raw file (URL on every line) back to the Netscape bookmark format.
 Because the bookmark title have been discarded, the URL is used for this field.
-Timestamps and other metadata is discarded.
+**Timestamps and other metadata is discarded.**
 
 *If you are unsatisfied with this behavior, scroll ahead.*
 
@@ -71,9 +71,9 @@ Timestamps and other metadata is discarded.
 
 `to_netscape_today.py <raw file>`
 
-This script converts a raw file (URL on every line) back to the Netscape bookmark format.
+This script converts a raw file (URL on every line) back to the Netscape bookmark format.  
 Because the timestamps (creation, modification) as well as the bookmark title have been discarded,
-the current time repectively the URL is used for these fields.
+the **current time repectively the URL** is used for these fields.
 
 *If you are unsatisfied with this behavior, scroll ahead.*
 
@@ -81,8 +81,8 @@ the current time repectively the URL is used for these fields.
 
 `to_netscape_full.py <raw file> <netscape bookmark file> [netscape bookmark file]...`
 
-This script converts a raw file (URL on every line) back to the netscape bookmark format.
-The netscape bookmark files are being crawled for metadata in the order given by the
+This script converts a raw file (URL on every line) back to the Netscape bookmark format.  
+The **Netscape bookmark files are being crawled for metadata** in the order given by the
 command line arguments. The first match is used. If no match is found, timestamps are ignored
 and the title will be the URL.
 
