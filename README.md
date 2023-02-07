@@ -89,7 +89,7 @@ the first file, but not in the second.
 
 `union.py <raw file 1> [raw file 2]...`
 
-This script removes duplicate URLs and sorts everything
+This script removes duplicate URLs **and sorts everything**
 before printing every line on the standard output.
 
 ## Example (combined)
