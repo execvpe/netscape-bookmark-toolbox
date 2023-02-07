@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from bs4 import BeautifulSoup
-from sys import argv
+from sys import argv, stderr
 
 soups = []
 
@@ -21,45 +21,21 @@ def netscape_begin() -> None:
 <DL><p>
 """)
 
-def netscape_add(url: str, creation: int, modification: int, title: str) -> None:
-    s = f'    <DT><A HREF="{url}"'
-
-    if creation != None:
-        s += f' ADD_DATE="{creation}"'
-    if modification != None:
-        s += f' LAST_MODIFIED="{modification}"'
-
-    s += f'>{title}</A>'
-
-    print(s)
+def netscape_add(tag: str) -> None:
+    print(f'    <DT>{tag}')
 
 def netscape_end() -> None:
     print("</DL>")
 
-def find_metadata(url: str) -> tuple[int, int, str]:
+def find_tag(url: str) -> str:
     global soups
     for s in soups:
         for e in s.findAll("a", href=True):
             if e["href"] != url:
                 continue
+            return repr(e)
 
-            try:
-                creation = int(e["add_date"])
-            except KeyError:
-                creation = None
-
-            try:
-                modification = int(e["last_modified"])
-            except KeyError:
-                modification = None
-
-            title = e.get_text(strip=True)
-
-            return (creation,
-                    modification,
-                    title if len(title) > 0 else url)
-
-    return None, None, url
+    return None
 
 def main(argc: int, argv: list[str]) -> None:
     if argc < 3:
@@ -75,9 +51,11 @@ def main(argc: int, argv: list[str]) -> None:
     with open(argv[1]) as f:
         for url in f.readlines():
             url = url.strip()
-            creation, modification, title = find_metadata(url)
-
-            netscape_add(url, creation, modification, title)
+            tag = find_tag(url)
+            if tag == None:
+                print(f"The URL {url} was not found in the given bookmark files!", file=stderr)
+                continue
+            netscape_add(tag)
 
     netscape_end()
 
