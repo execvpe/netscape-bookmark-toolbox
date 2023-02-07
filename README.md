@@ -52,7 +52,7 @@ in front of it. Discard any errors by appending `2> /dev/null`.
 
 ### rm_dups_and_sort.py
 
-`rm_dups_and_sort.py <raw file>`
+`rm_dups_and_sort.py <raw file> [raw file]...`
 
 As the name suggests, this script removes duplicate URLs and sorts everything
 before printing them on the standard output.
